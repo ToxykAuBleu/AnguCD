@@ -1,0 +1,12 @@
+<div class="cd-card" [ngClass]="{'cdadded': Cd.onsale === true}">
+    <h3>{{Cd.title | uppercase}}</h3>
+    <p>Sortie le : {{Cd.dateDeSortie | date: 'dd/MM/yyyy'}}</p>
+    <p>Auteur / groupe : {{Cd.author}}</p>
+    <p>Prix : {{Cd.price | currency: 'EUR'}}</p>
+    <p>
+        En stock : <span [ngStyle]="{ color: 'rgb(0, ' + Cd.quantite + ', 0)'}"> {{Cd.quantite}}
+        </span>
+        <button (click)="onAddCD()">Ajouter un CD</button>
+    </p>
+    <img [src]="Cd.thumbnail" [alt]="Cd.title" />
+</div>
