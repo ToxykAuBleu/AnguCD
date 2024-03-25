@@ -1,1 +1,45 @@
-<p>new-cd works!</p>
+<div class="monForm">
+    <section class="subForm saisieForm">
+        <h2>Nouveau CD</h2>
+        <form [formGroup]="formulaire">
+            <div class="form-group">
+                <label for="title">Titre</label>
+                <input type="text" class="form-control" id="title" formControlName="title" />
+            </div>
+            <div class="form-group">
+                <label for="author">Auteur</label>
+                <input type="text" class="form-control" id="author" formControlName="author" />
+            </div>
+            <div class="form-group">
+                <label for="thumbnail">Miniature</label>
+                <input type="text" class="form-control" id="thumbnail" formControlName="thumbnail" />
+            </div>
+            <div class="form-group">
+                <label for="dateDeSortie">Date de sortie</label>
+                <input type="text" class="form-control" id="dateDeSortie" formControlName="dateDeSortie" />
+            </div>
+            <div class="form-group">
+                <label for="quantite">Quantité</label>
+                <input type="text" class="form-control" id="quantite" formControlName="quantite" />
+            </div>
+            <div class="form-group">
+                <label for="price">Prix (€)</label>
+                <input type="text" class="form-control" id="price" formControlName="price" />
+            </div>
+
+            <button type="submit" (submit)="submit()" (click)="submit()" [disabled]="formulaire.invalid">Ajouter le CD</button>
+        </form>
+    </section>
+
+    <section class="subForm visuForm">
+        <h2>Vue du CD</h2>
+        <div *ngIf="currentCD !== undefined">
+            <h3>{{currentCD.title}}</h3>
+            <p>Sortie le : {{currentCD.dateDeSortie | date: 'dd/MM/yyyy'}}</p>
+            <p>Auteur / groupe : {{currentCD.author}}</p>
+            <p>Prix : {{currentCD.price | currency: 'EUR'}}</p>
+            <p>Quantité : {{currentCD.quantite}}</p>
+            <img [src]="currentCD.thumbnail" alt="{{currentCD.title}}">
+        </div>
+    </section>
+</div>
