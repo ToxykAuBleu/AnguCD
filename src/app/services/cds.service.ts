@@ -8,7 +8,7 @@ export class CdsService {
 
   constructor() { }
 
-  getCDs(): CD[] {
+  getAllCDs(): CD[] {
     return [
       {
         id: 1,
@@ -39,5 +39,11 @@ export class CdsService {
         quantite: 0
       },
     ];
+  }
+
+  getCDById(id: number): CD {
+    const cd = this.getAllCDs().find(cd => cd.id === id);
+    if (!cd) throw new Error('CD not found');
+    return cd;
   }
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ListCDComponent } from './list-cd/list-cd.component';
+import { CdComponent } from './cd/cd.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'catalog',
     component: ListCDComponent
+  },
+  {
+    path: 'cd/:id',
+    component: CdComponent
   }
 ];
 
