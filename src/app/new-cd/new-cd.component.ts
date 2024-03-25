@@ -11,6 +11,14 @@ export class NewCDComponent implements OnInit {
   formulaire!: FormGroup;
   currentCD!: CD;
   thumbRegex: RegExp = new RegExp('https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg|webp)$');
+  champsForm: [string, string, string][] = [
+    ["title", "text", "Titre"],
+    ["author", "text", "Auteur"],
+    ["thumbnail", "text", "Miniature"],
+    ["dateDeSortie", "date", "Date de sortie"],
+    ["quantite", "number", "Quantité"],
+    ["price", "number", "Prix (€)"],
+  ];
 
   constructor(private formBuilder: FormBuilder) { }
 
