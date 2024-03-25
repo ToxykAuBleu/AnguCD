@@ -9,6 +9,7 @@ import { ListCDComponent } from './list-cd/list-cd.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { NewCDComponent } from './new-cd/new-cd.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     CdComponent,
     HeaderComponent,
     ListCDComponent,
-    HomeComponent
+    HomeComponent,
+    NewCDComponent
   ],
   imports: [
     BrowserModule,
