@@ -1,6 +1,17 @@
-<h1>{{ title }}</h1>
-<nav>
-    <a class="button" routerLink="/">Accueil</a>
-    <a class="button" routerLink="/catalog">Liste de CDs</a>
-    <a class="button" routerLink="/add">Ajouter un CD</a>
+<nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom mx-5">
+    <div class="col-md-3 mb-2 mb-md-0">
+        <a routerLink="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+            {{ title }}
+        </a>
+    </div>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a #routeAccueil routerLink="/" class="nav-link px-2">Accueil</a></li>
+        <li><a #routeCatalogue routerLink="/catalog" class="nav-link px-2">Liste de CDs</a></li>
+        <li><a #routeAjouter routerLink="/add" class="nav-link px-2">Ajouter un CD</a></li>
+    </ul>
+
+    <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-secondary me-2">A propos</button>
+    </div>
 </nav>
