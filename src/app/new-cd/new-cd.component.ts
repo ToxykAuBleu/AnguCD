@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CD } from '../models/cd.model';
+import { CdsService } from '../services/cds.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-cd',
@@ -20,7 +22,11 @@ export class NewCDComponent implements OnInit {
     ["price", "number", "Prix (€)"],
   ];
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private cdService: CdsService,
+    private router: Router) 
+  { }
 
   ngOnInit(): void {
     this.formulaire = this.formBuilder.group({
@@ -49,8 +55,29 @@ export class NewCDComponent implements OnInit {
     });
   }
 
-  submit() {
-    console.log("Coucou");
+  submit(): void {
+    // Création de l'objet CD venant du formulaire.
+    let cd: CD = {
+      id: 0,
+      title: this.formulaire.get('title')?.value,
+      author: this.formulaire.get('author')?.value,
+      thumbnail: this.formulaire.get('thumbnail')?.value,
+      dateDeSortie: this.formulaire.get('dateDeSortie')?.value,
+      quantite: this.formulaire.get('quantite')?.value,
+      price: this.formulaire.get('price')?.value,
+      onsale: false
+    };
+
+    // Envoi du CD à l'API.
+    this.cdService.addCD(cd).subscribe({
+      next: (cd) => {
+        this.router.navigateByUrl("/catalog");
+      },
+      error: (err) => {
+        console.error("Erreur lors de l'envoi du CD: ", err);
+        alert("Une erreur est survenue lors de l'envoi du CD.");
+      }
+    });
   }
 
 }
