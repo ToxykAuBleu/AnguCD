@@ -6,9 +6,9 @@
     </div>
 
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a #routeAccueil routerLink="/" class="nav-link px-2">Accueil</a></li>
-        <li><a #routeCatalogue routerLink="/catalog" class="nav-link px-2">Liste de CDs</a></li>
-        <li><a #routeAjouter routerLink="/add" class="nav-link px-2">Ajouter un CD</a></li>
+        <li><a routerLink="/" class="nav-link px-2" [ngClass]="{ 'link-secondary': currentRoute === '/'}" >Accueil</a></li>
+        <li><a routerLink="/catalog" class="nav-link px-2" [ngClass]="{ 'link-secondary': currentRoute === '/catalog'}">Liste de CDs</a></li>
+        <li><a routerLink="/add" class="nav-link px-2" [ngClass]="{ 'link-secondary': currentRoute === '/add'}">Ajouter un CD</a></li>
     </ul>
 
     <div class="col-md-3 text-end">
