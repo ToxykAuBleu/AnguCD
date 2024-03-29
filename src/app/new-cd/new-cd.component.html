@@ -1,34 +1,36 @@
-<div class="monForm">
-    <section class="subForm saisieForm">
-        <h2>Nouveau CD</h2>
-        <form [formGroup]="formulaire">
-            <ng-container *ngFor="let input of champsForm">
-                <div class="form-group">
-                    <label for="{{input[0]}}">{{input[2]}}</label>
-                    <input type="{{input[1]}}" class="form-control" id="{{input[0]}}" formControlName="{{input[0]}}" />
-
-                    <div *ngIf="formulaire.get(input[0])?.invalid &&
-                    formulaire.get(input[0])?.errors &&
-                    (formulaire.get(input[0])?.dirty || formulaire.get(input[0])?.touched)">
-                        <small class="text-danger" *ngIf="formulaire.get(input[0])?.hasError('required')">Ce champ est requis.</small>
-                        <small class="text-danger" *ngIf="formulaire.get(input[0])?.hasError('minlength')">Ce champ doit compter au moins 6 caractères.</small>
+<div class="monForm container">
+    <div class="row">
+        <section class="subForm saisieForm col">
+            <h2>Nouveau CD</h2>
+            <form [formGroup]="formulaire">
+                <ng-container *ngFor="let input of champsForm">
+                    <div class="form-group">
+                        <label for="{{input[0]}}">{{input[2]}}</label>
+                        <input type="{{input[1]}}" class="form-control" id="{{input[0]}}" formControlName="{{input[0]}}" />
+    
+                        <div *ngIf="formulaire.get(input[0])?.invalid &&
+                        formulaire.get(input[0])?.errors &&
+                        (formulaire.get(input[0])?.dirty || formulaire.get(input[0])?.touched)">
+                            <small class="text-danger" *ngIf="formulaire.get(input[0])?.hasError('required')">Ce champ est requis.</small>
+                            <small class="text-danger" *ngIf="formulaire.get(input[0])?.hasError('minlength')">Ce champ doit compter au moins 6 caractères.</small>
+                        </div>
                     </div>
-                </div>
-            </ng-container>
-
-            <button type="submit" (submit)="submit()" (click)="submit()" [disabled]="formulaire.invalid">Ajouter le CD</button>
-        </form>
-    </section>
-
-    <section class="subForm visuForm">
-        <h2>Vue du CD</h2>
-        <div *ngIf="currentCD !== undefined">
-            <h3>{{currentCD.title}}</h3>
-            <p>Sortie le : {{currentCD.dateDeSortie | date: 'dd/MM/yyyy'}}</p>
-            <p>Auteur / groupe : {{currentCD.author}}</p>
-            <p>Prix : {{currentCD.price | currency: 'EUR'}}</p>
-            <p>Quantité : {{currentCD.quantite}}</p>
-            <img [src]="currentCD.thumbnail" alt="{{currentCD.title}}">
-        </div>
-    </section>
+                </ng-container>
+    
+                <button type="submit" (submit)="submit()" (click)="submit()" [disabled]="formulaire.invalid">Ajouter le CD</button>
+            </form>
+        </section>
+    
+        <section class="subForm visuForm col">
+            <h2>Vue du CD</h2>
+            <div *ngIf="currentCD !== undefined">
+                <h3>{{currentCD.title}}</h3>
+                <p>Sortie le : {{currentCD.dateDeSortie | date: 'dd/MM/yyyy'}}</p>
+                <p>Auteur / groupe : {{currentCD.author}}</p>
+                <p>Prix : {{currentCD.price | currency: 'EUR'}}</p>
+                <p>Quantité : {{currentCD.quantite}}</p>
+                <img [src]="currentCD.thumbnail" alt="{{currentCD.title}}">
+            </div>
+        </section>
+    </div>
 </div>
