@@ -1,10 +1,9 @@
 <mat-card [ngClass]="{'cdadded': leCd.onsale === true}">
     <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{leCd.title | uppercase}}</mat-card-title>
         <mat-card-subtitle>{{leCd.author}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image class="img-thumbnail" [src]="leCd.thumbnail" [alt]="leCd.title">
+    <img mat-card-image class="img-thumbnail w-75 align-self-center" [src]="leCd.thumbnail" [alt]="leCd.title">
     <mat-card-content>
         <p>Prix : {{leCd.price | currency: 'EUR'}}</p>
         <p>
