@@ -6,12 +6,12 @@
     </div>
 
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a routerLink="/" class="nav-link px-2" [ngClass]="{ 'link-secondary': currentRoute === '/'}" ><i class="bi bi-house-fill"></i> Accueil</a></li>
-        <li><a routerLink="/catalog" class="nav-link px-2" [ngClass]="{ 'link-secondary': currentRoute === '/catalog'}"><i class="bi bi-card-list"></i> Liste de CDs</a></li>
-        <li><a routerLink="/add" class="nav-link px-2" [ngClass]="{ 'link-secondary': currentRoute === '/add'}"><i class="bi bi-plus-circle-fill"></i> Ajouter un CD</a></li>
+        <li><a routerLink="/" class="nav-link px-2" mat-button color="primary" [attr.disabled]="currentRoute === '/' ? true : null" ><i class="bi bi-house-fill"></i> Accueil</a></li>
+        <li><a routerLink="/catalog" class="nav-link px-2" mat-button color="primary" [attr.disabled]="currentRoute === '/catalog' ? true : null"><i class="bi bi-card-list"></i> Liste de CDs</a></li>
+        <li><a routerLink="/add" class="nav-link px-2" mat-button color="primary" [attr.disabled]="currentRoute === '/add' ? true : null"><i class="bi bi-plus-circle-fill"></i> Ajouter un CD</a></li>
     </ul>
 
     <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-secondary me-2"><i class="bi bi-patch-question"></i> A propos</button>
+        <button type="button" mat-stroked-button><i class="bi bi-patch-question"></i> A propos</button>
     </div>
 </nav>
